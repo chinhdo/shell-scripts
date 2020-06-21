@@ -3,6 +3,10 @@
 # Bandwidth calculations based on script by WaLLy3K (see https://www.linksysinfo.org/index.php?threads/how-to-monitor-the-ip-traffic-and-bandwidth-with-cli.71998/)
 # For running on Tomato USB or Advanced Tomato routers
 
+# /proc/net/dev has raw bandwidth stats for network interfaces
+# Columns
+
+
 wan_iface=`nvram get wan_iface`
 calc(){ awk "BEGIN { print $*}"; }    # Calculate floating point arithmetic using AWK instead of BC
 
