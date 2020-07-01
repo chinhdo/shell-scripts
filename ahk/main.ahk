@@ -2,7 +2,7 @@ SendMode Input
 SetWorkingDir %A_ScriptDir% 
 
 log(msg) {
-	file := FileOpen("chinh.log", "a")
+	file := FileOpen("main.log", "a")
 	if !IsObject(file)
 	{
 		MsgBox Can't open "%FileName%" for writing.
@@ -15,22 +15,25 @@ log(msg) {
 }
 
 OnExit, sub_exit
-if (midi_in_Open(1))
-	ExitApp
+; if (midi_in_Open(1))
+	; ExitApp
 
-listenNoteRange(1, 127, "handleNote", 0x00)
-listenCC(52, "setVolume", 0)
-
+; listenNoteRange(1, 127, "handleNote", 0x00)
+; listenCC(52, "setVolume", 0)
 
 return
 ;----------------------End of auto execute section--------------------
 
 sub_exit:
-	midi_in_Close()
+	; midi_in_Close()
 ExitApp
 
 ;-------------------------Miscellaneous hotkeys-----------------------
 Esc::ExitApp
+
+#1::
+WinMove, 100, 100
+
 
 ;-------------------------Midi "hotkey" functions---------------------
 handleNote(note, vel)
@@ -77,6 +80,6 @@ setVolume(num, vel) {
 }
 
 ;-------------------------  Midi input library  ----------------------
-#include midi_in_lib.ahk
+; #include midi_in_lib.ahk
 
 ; See https://watzek.dev/posts/2020/03/22/midi-for-the-home-office/
