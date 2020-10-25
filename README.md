@@ -1,2 +1,2 @@
 # shell-scripts
-Misc shell scripts
+Misc shell scripts (public)
